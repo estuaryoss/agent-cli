@@ -9,7 +9,7 @@ Stateless CLI over RestApi using estuary-testrunner
 ```bash
 python main.py 
 
-PS C:\Users\cdinuta\IdeaProjects\estuary-cli> python .\main.py --help                                                                                                                                                     Usage: main.py [OPTIONS]
+python .\main.py --help                                                                                                                                                     Usage: main.py [OPTIONS]
 
 Options:
   --ip TEXT     The IP/hostname of the target machine where estuary-
