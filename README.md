@@ -24,10 +24,11 @@ Usage: main.py [OPTIONS]
 
 Options:
   --ip TEXT     The IP/hostname of the target machine where estuary-testrunner
-                is running
+                is deployed
   --port TEXT   The port number of the target machine where estuary-testrunner
-                is running
-  --token TEXT  The authentication token that will be sent via 'Token' header
+                is deployed
+  --token TEXT  The authentication token that will be sent via 'Token' header.
+                Use 'None' if estuary-testrunner is deployed unsecured
   --help        Show this message and exit.
 ```
 

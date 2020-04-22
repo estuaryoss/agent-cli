@@ -67,6 +67,21 @@ class FlaskServerTestCase(unittest.TestCase):
 
         self.assertIn("requirements.txt", result.output)
 
+    def test_cli_empty_command_p(self):
+        cli_args = {
+            "ip": self.ip,
+            "port": self.port,
+            "token": self.token
+        }
+        command = " \n \n \n      \n \n \n \n \n \n \n"
+
+        runner = CliRunner()
+        result = runner.invoke(cli,
+                               input=f"{cli_args.get('ip')}\n{cli_args.get('port')}\n{cli_args.get('token')}\n{command}")
+
+        self.assertNotIn("Empty request body provided",result.output)
+        self.assertEqual(result.output.count(">>"), command.count("\n") + 1)
+
     def test_cli_quit_p(self):
         cli_args = {
             "ip": self.ip,

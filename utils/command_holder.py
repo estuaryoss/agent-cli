@@ -4,7 +4,7 @@ from sys import exit
 class CommandHolder:
     commands = {
         "quit": exit,
-        "trump": exit,
+        "trump": exit
     }
 
     @staticmethod
