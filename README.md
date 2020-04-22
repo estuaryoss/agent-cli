@@ -23,9 +23,9 @@ PS > python .\main.py --help
 Usage: main.py [OPTIONS]
 
 Options:
-  --ip TEXT     The IP/hostname of the target machine where estuary-cli
+  --ip TEXT     The IP/hostname of the target machine where estuary-testrunner
                 is running
-  --port TEXT   The port number of the target machine where estuary-cli
+  --port TEXT   The port number of the target machine where estuary-testrunner
                 is running
   --token TEXT  The authentication token that will be sent via 'Token' header
   --help        Show this message and exit.
