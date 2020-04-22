@@ -1,3 +1,6 @@
+from sys import exit
+
+
 class CommandHolder:
     commands = {
         "quit": exit,
