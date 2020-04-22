@@ -31,7 +31,7 @@ Options:
   --help        Show this message and exit.
 ```
 
-##Stateless cli example
+## Stateless cli example  
 ![image](https://user-images.githubusercontent.com/43060213/79952987-e1142f00-8483-11ea-8fdc-8bef2b7f8d2a.png)  
 
 ## Exit cli
