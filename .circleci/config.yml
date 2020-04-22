@@ -1,0 +1,35 @@
+version: 2.1
+
+orbs:
+  win: circleci/windows@2.2.0
+
+jobs:
+  build-and-test:
+    executor:
+      name: win/default
+      shell: powershell.exe
+    steps:
+      - checkout
+      - run:
+          command: pip install -r requirements.txt
+          name: "install requirements"
+      - run:
+          command: $ProgressPreference = "SilentlyContinue"
+          name: "set ProgressPreference"
+      - run:
+          command: wget https://github.com/dinuta/estuary-testrunner/releases/download/4.0.2/main-win.exe
+          name: "download estuary-testrunner"
+      - run:
+          command: Start-Process .\main-win.exe
+          name: "start estuary-testrunner"
+      - run:
+          command: ping -n 5 127.0.0.1
+          name: "wait some time"
+      - run:
+          command: python -m unittest discover tests "test_cli.py"
+          name: "run integration tests"
+
+workflows:
+  main:
+    jobs:
+      - build-and-test

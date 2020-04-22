@@ -3,6 +3,7 @@ import click
 __author__ = "Catalin Dinuta"
 
 from service.restapi_service import RestApiService
+from utils.command_holder import CommandHolder
 
 
 @click.command()
@@ -11,7 +12,7 @@ from service.restapi_service import RestApiService
 @click.option('--port', prompt='port',
               help='The port number of the target machine where estuary-testrunner is running')
 @click.option('--token', prompt='Auth token [Use \'None\' if estuary-testrunner is not secured]', hide_input=True,
-              confirmation_prompt=True, help='The authentication token that will be sent via \'Token\' header')
+              help='The authentication token that will be sent via \'Token\' header')
 def cli(ip, port, token):
     connection = {
         "ip": ip,
@@ -27,11 +28,15 @@ def cli(ip, port, token):
         print("\nException({0})".format(e.__str__()))
         exit(1)
 
-    # stay in loop. ctrl+c to exit
+    # stay in loop. ctrl+c to exit or send 'quit'
     while True:
-        commands = input(">> ")
-        response = service.send(commands)
-        click.echo(response)
+        command = input(">> ")
+        CommandHolder.check_cmd(command)
+        try:
+            response = service.send(command)
+            click.echo(response)
+        except Exception as e:
+            print("\nException({0})".format(e.__str__()))
 
 
 if __name__ == "__main__":

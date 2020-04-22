@@ -10,7 +10,7 @@ class RestApiService:
         body = requests.post(url_format, headers={'Token': self.connection.get('token')}, data=command, timeout=5).json()
 
         # here an error occurred, because the type should be dict
-        if type(body['message']) is str:
+        if isinstance(body['message'], str):
             return body.get('message')
 
         details = body.get('message').get('commands').get(command).get('details')
