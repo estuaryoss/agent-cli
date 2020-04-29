@@ -1,5 +1,5 @@
 # estuary-cli
-Stateless CLI over RestApi using estuary-testrunner. Smoothly control and configure your devices.
+Stateless CLI over RestApi using estuary-testrunner. Smoothly control and configure your machines/devices.
 
 ## Code quality
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8db7b5e216984baebd9d158d3a707361)](https://www.codacy.com/manual/dinuta/estuary-cli?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dinuta/estuary-cli&amp;utm_campaign=Badge_Grade)
