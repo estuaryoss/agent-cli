@@ -14,10 +14,7 @@ jobs:
           command: pip install -r requirements.txt
           name: "install requirements"
       - run:
-          command: $ProgressPreference = "SilentlyContinue"
-          name: "set ProgressPreference"
-      - run:
-          command: wget https://github.com/dinuta/estuary-testrunner/releases/download/4.0.2/main-win.exe
+          command: $ProgressPreference = "SilentlyContinue"; wget https://github.com/dinuta/estuary-testrunner/releases/download/4.0.3/main-win.exe -o main-win.exe
           name: "download estuary-testrunner"
       - run:
           command: Start-Process .\main-win.exe

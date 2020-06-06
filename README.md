@@ -8,6 +8,9 @@ Stateless CLI over RestApi using estuary-testrunner. Smoothly control and config
 ## Linux status
 [![Build Status](https://travis-ci.org/dinuta/estuary-cli.svg?branch=master)](https://travis-ci.org/dinuta/estuary-cli)
 
+## Win status
+[![CircleCI](https://circleci.com/gh/dinuta/estuary-cli.svg?style=svg)](https://circleci.com/gh/dinuta/estuary-cli)
+
 ## Steps
 -  deploy [estuary-testrunner](https://github.com/dinuta/estuary-testrunner)  on the target machine (metal/VM/Docker/IoT device)
 -  connect to the target machine with this CLI
