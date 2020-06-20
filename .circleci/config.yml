@@ -14,7 +14,7 @@ jobs:
           command: pip install -r requirements.txt
           name: "install requirements"
       - run:
-          command: $ProgressPreference = "SilentlyContinue"; wget https://github.com/dinuta/estuary-testrunner/releases/download/4.0.3/main-win.exe -o main-win.exe
+          command: $ProgressPreference = "SilentlyContinue"; wget https://github.com/dinuta/estuary-testrunner/releases/download/4.0.4/main-win.exe -o main-win.exe
           name: "download estuary-testrunner"
       - run:
           command: Start-Process .\main-win.exe
@@ -25,7 +25,8 @@ jobs:
       - run:
           command: python -m unittest discover tests "test_cli.py"
           name: "run integration tests"
-
+      - store_artifacts:
+          path: main-win.exe
 workflows:
   main:
     jobs:

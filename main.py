@@ -28,7 +28,7 @@ def cli(ip, port, token):
     try:
         service.send("whatever because does not matter")
     except Exception as e:
-        print("\nException({0})".format(e.__str__()))
+        print("\nException({})".format(e.__str__()))
         exit(1)
 
     # stay in loop. ctrl+c to exit or send 'quit/trump'
@@ -39,7 +39,7 @@ def cli(ip, port, token):
             response = service.send(command)
             click.echo(response)
         except Exception as e:
-            print("\nException({0})".format(e.__str__()))
+            print("\nException({})".format(e.__str__()))
 
 
 if __name__ == "__main__":

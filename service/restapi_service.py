@@ -17,8 +17,8 @@ class RestApiService:
                              timeout=5).json()
 
         # here an error occurred, because the type should be dict
-        if isinstance(body['message'], str):
-            return body.get('message')
+        if isinstance(body['description'], str):
+            return body.get('description')
 
-        details = body.get('message').get('commands').get(command).get('details')
+        details = body.get('description').get('commands').get(command).get('details')
         return details.get('out') if details.get('err') == "" else details.get('err')
