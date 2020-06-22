@@ -8,15 +8,24 @@ class RestApiService:
 
     def send(self, command):
         url_format = f"http://{self.connection.get('ip')}:{self.connection.get('port')}/command"
+        headers = {
+            "Token": self.connection.get('token'),
+            "Content-Type": "text/plain"
+        }
 
         # return prompt if empty or spaces
         if re.compile(r"^\s+$").search(command) or command == "":
             return ""
 
-        body = requests.post(url_format, headers={'Token': self.connection.get('token')}, data=command,
-                             timeout=5).json()
+        response = requests.post(url_format, headers=headers, data=command, timeout=5)
 
-        # here an error occurred, because the type should be dict
+        # error, server sent non 200 OK response code
+        if response.status_code is not 200:
+            return "Error: Http code: {}. Http body: {}".format(response.status_code, response.text)
+
+        body = response.json()
+
+        # error, the type should be dict
         if isinstance(body['description'], str):
             return body.get('description')
 
