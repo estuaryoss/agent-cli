@@ -15,24 +15,36 @@ Stateless CLI over RestApi using estuary-testrunner. Smoothly control and config
 -  deploy [estuary-testrunner](https://github.com/dinuta/estuary-testrunner)  on the target machine (metal/VM/Docker/IoT device)
 -  connect to the target machine with this CLI
 
-## Usage
+## Interactive usage
 ```bash
 python main.py 
 python .\main.py --ip=192.168.0.10 --port=8080 --token=None
 ```
 
+## Non-interactive usage
+```bash
+python .\main.py --ip=192.168.0.10 --port=8080 --token=None --cmds="dir"
+python .\main.py --ip=192.168.0.10 --port=8080 --token=None --cmds="dir;cat requirements.txt"
+```
+
 ## Params
 ```bash
-PS > python .\main.py --help  
+PS > python main.py --help
 Usage: main.py [OPTIONS]
 
 Options:
   --ip TEXT     The IP/hostname of the target machine where estuary-testrunner
                 is deployed
+
   --port TEXT   The port number of the target machine where estuary-testrunner
                 is deployed
+
   --token TEXT  The authentication token that will be sent via 'Token' header.
                 Use 'None' if estuary-testrunner is deployed unsecured
+
+  --cmds TEXT   The commands to be sent separated by ";". Useful for non-
+                interactive mode.
+
   --help        Show this message and exit.
 ```
 

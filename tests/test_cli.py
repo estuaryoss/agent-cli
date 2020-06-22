@@ -4,12 +4,14 @@ import unittest
 from click.testing import CliRunner
 
 from main import cli
+from tests.cmd_utils import CmdUtils
 
 
 class FlaskServerTestCase(unittest.TestCase):
     ip = "localhost"
     port = "8080"
     token = "None"
+    cmds = "ls"
 
     def test_cli_invalid_token_n(self):
         cli_args = {
@@ -67,6 +69,37 @@ class FlaskServerTestCase(unittest.TestCase):
 
         self.assertIn("requirements.txt", result.output)
 
+    def test_cli_non_interactive_p(self):
+        cli_args = {
+            "ip": self.ip,
+            "port": self.port,
+            "token": self.token,
+            "cmds": self.cmds
+        }
+        response = CmdUtils.run_cmd_shell_true(f"python main.py "
+                                               f"--ip={cli_args.get('ip')} "
+                                               f"--port={cli_args.get('port')} "
+                                               f"--token={cli_args.get('token')} --cmds={cli_args.get('cmds')}")
+
+        self.assertEqual(0, response.get('code'))
+        self.assertIn("requirements.txt", response.get('out'))
+
+    def test_cli_non_interactive_multiple_cmds_p(self):
+        cli_args = {
+            "ip": self.ip,
+            "port": self.port,
+            "token": self.token,
+            "cmds": self.cmds
+        }
+        response = CmdUtils.run_cmd_shell_true(f"python main.py "
+                                               f"--ip={cli_args.get('ip')} "
+                                               f"--port={cli_args.get('port')} "
+                                               f"--token={cli_args.get('token')} --cmds=\"{cli_args.get('cmds')};cat requirements.txt\"")
+
+        self.assertIn("requirements.txt", response.get('out'))
+        self.assertIn("pyinstaller", response.get('out'))
+        self.assertEqual(0, response.get('code'))
+
     def test_cli_empty_command_p(self):
         cli_args = {
             "ip": self.ip,
@@ -79,7 +112,7 @@ class FlaskServerTestCase(unittest.TestCase):
         result = runner.invoke(cli,
                                input=f"{cli_args.get('ip')}\n{cli_args.get('port')}\n{cli_args.get('token')}\n{command}")
 
-        self.assertNotIn("Empty request body provided",result.output)
+        self.assertNotIn("Empty request body provided", result.output)
         self.assertEqual(result.output.count(">>"), command.count("\n") + 1)
 
     def test_cli_quit_p(self):

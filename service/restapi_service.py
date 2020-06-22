@@ -20,7 +20,7 @@ class RestApiService:
         response = requests.post(url_format, headers=headers, data=command, timeout=5)
 
         # error, server sent non 200 OK response code
-        if response.status_code is not 200:
+        if response.status_code != 200:
             return "Error: Http code: {}. Http body: {}".format(response.status_code, response.text)
 
         body = response.json()
