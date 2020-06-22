@@ -1,10 +1,10 @@
-from sys import exit
+import sys
 
 
 class CommandHolder:
     commands = {
-        "quit": exit,
-        "trump": exit
+        "quit": sys.exit,
+        "trump": sys.exit
     }
 
     @staticmethod
