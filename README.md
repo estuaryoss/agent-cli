@@ -15,6 +15,9 @@ Stateless CLI over RestApi using estuary-testrunner. Smoothly control and config
 -  deploy [estuary-testrunner](https://github.com/dinuta/estuary-testrunner)  on the target machine (metal/VM/Docker/IoT device)
 -  connect to the target machine with this CLI
 
+## CLI in action on Katacoda
+https://katacoda.com/dinuta/scenarios/estuary-cli
+
 ## Interactive usage
 ```bash
 python main.py 
@@ -23,8 +26,8 @@ python .\main.py --ip=192.168.0.10 --port=8080 --token=None
 
 ## Non-interactive usage
 ```bash
-python .\main.py --ip=192.168.0.10 --port=8080 --token=None --cmds="dir"
-python .\main.py --ip=192.168.0.10 --port=8080 --token=None --cmds="dir;cat requirements.txt"
+python .\main.py --ip=192.168.0.10 --port=8080 --token=None --cmds="dir;trump"
+python .\main.py --ip=192.168.0.10 --port=8080 --token=None --cmds="dir;cat requirements.txt;trump"
 ```
 
 ## Params
