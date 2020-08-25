@@ -28,7 +28,7 @@ def cli(ip, port, token, cmds):
 
     # check if can connect
     try:
-        service.send("whatever because does not matter")
+        service.send("ls")
     except Exception as e:
         print("\nException({})".format(e.__str__()))
         exit(1)

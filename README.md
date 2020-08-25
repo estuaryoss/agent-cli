@@ -1,5 +1,5 @@
 # estuary-cli
-Stateless CLI over RestApi using estuary-agent. Smoothly control your CLI application and configure your machines/devices.
+Stateless CLI over REST API using estuary-agent. Smoothly control and configure your machine / CLI application.
 
 ## Code quality
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8db7b5e216984baebd9d158d3a707361)](https://www.codacy.com/manual/dinuta/estuary-cli?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dinuta/estuary-cli&amp;utm_campaign=Badge_Grade)
@@ -12,7 +12,7 @@ Stateless CLI over RestApi using estuary-agent. Smoothly control your CLI applic
 [![CircleCI](https://circleci.com/gh/dinuta/estuary-cli.svg?style=svg)](https://circleci.com/gh/dinuta/estuary-cli)
 
 ## Steps
--  deploy [estuary-agent](https://github.com/dinuta/estuary-agent)  on the target machine (metal/VM/Docker/IoT device)
+-  deploy [estuary-agent](https://github.com/dinuta/estuary-agent) or [estuary-agent-java](https://github.com/dinuta/estuary-agent-java)  on the target machine (metal/VM/Docker/IoT device)
 -  connect to the target machine with this CLI
 
 ## CLI in action on Katacoda
@@ -36,14 +36,14 @@ PS > python main.py --help
 Usage: main.py [OPTIONS]
 
 Options:
-  --ip TEXT     The IP/hostname of the target machine where estuary-testrunner
+  --ip TEXT     The IP/hostname of the target machine where estuary-agent
                 is deployed
 
-  --port TEXT   The port number of the target machine where estuary-testrunner
+  --port TEXT   The port number of the target machine where estuary-agent
                 is deployed
 
   --token TEXT  The authentication token that will be sent via 'Token' header.
-                Use 'None' if estuary-testrunner is deployed unsecured
+                Use 'None' if estuary-agent is deployed unsecured
 
   --cmds TEXT   The commands to be sent separated by ";". Useful for non-
                 interactive mode.

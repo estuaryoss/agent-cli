@@ -1,4 +1,5 @@
 import re
+
 import requests
 
 
@@ -7,6 +8,7 @@ class RestApiService:
         self.connection = connection
 
     def send(self, command):
+        command = command.strip()
         url_format = f"http://{self.connection.get('ip')}:{self.connection.get('port')}/command"
         headers = {
             "Token": self.connection.get('token'),
