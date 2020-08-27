@@ -128,7 +128,7 @@ class FlaskServerTestCase(unittest.TestCase):
                                input=f"{cli_args.get('ip')}\n{cli_args.get('port')}\n{cli_args.get('token')}\n{command}  \n")
 
         self.assertIn(command, result.output)
-        self.assertIn("not found", result.output)
+        self.assertIn("not", result.output)
 
     def test_cli_command_with_tabs_p(self):
         cli_args = {
@@ -143,7 +143,7 @@ class FlaskServerTestCase(unittest.TestCase):
                                input=f"{cli_args.get('ip')}\n{cli_args.get('port')}\n{cli_args.get('token')}\n{command}\t\t  \n")
 
         self.assertIn(command, result.output)
-        self.assertIn("not found", result.output)
+        self.assertIn("not", result.output)
 
     def test_cli_quit_p(self):
         cli_args = {
