@@ -9,7 +9,7 @@ class RestApiService:
 
     def send(self, command):
         command = command.strip()
-        url_format = f"http://{self.connection.get('ip')}:{self.connection.get('port')}/command"
+        url_format = f"http://{self.connection.get('ip')}:{self.connection.get('port')}{self.connection.get('endpoint')}"
         headers = {
             "Token": self.connection.get('token'),
             "Content-Type": "text/plain"

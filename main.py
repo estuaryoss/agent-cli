@@ -17,12 +17,14 @@ from runners.non_interactive_runner import NonInteractiveRunner
 @click.option('--token', prompt='token', hide_input=True,
               help='The authentication token that will be sent via \'Token\' header. '
                    'Use \'None\' if estuary-testrunner is deployed unsecured')
+@click.option('--endpoint', help='The endpoint to sent the request. Default is "/command"')
 @click.option('--cmds', help='The commands to be sent separated by ";". Useful for non-interactive mode.')
-def cli(ip, port, token, cmds):
+def cli(ip, port, token, endpoint, cmds):
     connection = {
         "ip": ip,
         "port": port,
-        "token": token
+        "token": token,
+        "endpoint": endpoint if endpoint is not None else "/command"
     }
     service = RestApiService(connection)
 
