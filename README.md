@@ -6,14 +6,14 @@ Support project: <a href="https://paypal.me/catalindinuta?locale.x=en_US"><img s
 Stateless CLI over REST API using estuary-agent. Smoothly control and configure your machine / CLI application.
 
 ## Code quality
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8db7b5e216984baebd9d158d3a707361)](https://www.codacy.com/manual/dinuta/estuary-cli?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dinuta/estuary-cli&amp;utm_campaign=Badge_Grade)
-[![Maintainability](https://api.codeclimate.com/v1/badges/5ce99819df230698d95d/maintainability)](https://codeclimate.com/github/dinuta/estuary-cli/maintainability)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/086f5a66ac0841c4800dcddfdc9fb3c2)](https://www.codacy.com/gh/estuaryoss/estuary-cli?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=estuaryoss/estuary-cli&amp;utm_campaign=Badge_Grade)
+[![Maintainability](https://api.codeclimate.com/v1/badges/8fffe56fb66038d7fa2d/maintainability)](https://codeclimate.com/github/estuaryoss/estuary-cli/maintainability)
 
 ## Linux status
-[![Build Status](https://travis-ci.org/dinuta/estuary-cli.svg?branch=master)](https://travis-ci.org/dinuta/estuary-cli)
+[![Build Status](https://travis-ci.org/estuaryoss/estuary-cli.svg?branch=master)](https://travis-ci.org/estuaryoss/estuary-cli)
 
 ## Win status
-[![CircleCI](https://circleci.com/gh/dinuta/estuary-cli.svg?style=svg)](https://circleci.com/gh/dinuta/estuary-cli)
+[![CircleCI](https://circleci.com/gh/estuaryoss/estuary-cli.svg?style=svg)](https://circleci.com/gh/estuaryoss/estuary-cli)
 
 ## Steps
 -  deploy [estuary-agent](https://github.com/dinuta/estuary-agent) or [estuary-agent-java](https://github.com/dinuta/estuary-agent-java)  on the target machine (metal/VM/Docker/IoT device)
