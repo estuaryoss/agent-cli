@@ -11,12 +11,12 @@ from runners.non_interactive_runner import NonInteractiveRunner
 
 @click.command()
 @click.option('--ip', prompt='ip/hostname',
-              help='The IP/hostname of the target machine where estuary-testrunner is deployed')
+              help='The IP/hostname of the target machine where estuary-agent is deployed')
 @click.option('--port', prompt='port',
-              help='The port number of the target machine where estuary-testrunner is deployed')
+              help='The port number of the target machine where estuary-agent is deployed')
 @click.option('--token', prompt='token', hide_input=True,
               help='The authentication token that will be sent via \'Token\' header. '
-                   'Use \'None\' if estuary-testrunner is deployed unsecured')
+                   'Use \'None\' if estuary-agent is deployed unsecured')
 @click.option('--endpoint', help='The endpoint to sent the request. Default is "/command"')
 @click.option('--cmds', help='The commands to be sent separated by ";". Useful for non-interactive mode.')
 def cli(ip, port, token, endpoint, cmds):

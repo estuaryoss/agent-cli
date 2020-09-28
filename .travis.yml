@@ -18,6 +18,7 @@ jobs:
         ISOLATED: true
       script:
         #run cli tests
+        - docker login -u "$DOCKERHUB_USERNAME" -p "$DOCKERHUB_TOKEN"
         - docker run -d -e HTTP_AUTH_TOKEN=None -p 8080:8080 estuaryoss/agent:latest
         - sleep 5
         - chmod +x main.py
