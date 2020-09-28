@@ -3,7 +3,7 @@
 __author__ = "Catalin Dinuta"
 
 
-class SftpCli:
+class Sftp:
     """File downloader and uploader similar with transferring files over SSH"""
 
     @staticmethod

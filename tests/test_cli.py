@@ -85,6 +85,36 @@ class FlaskServerTestCase(unittest.TestCase):
         self.assertEqual(0, response.get('code'))
         self.assertIn("requirements.txt", response.get('out'))
 
+    def test_cli_non_interactive_file_down_p(self):
+        cli_args = {
+            "ip": self.ip,
+            "port": self.port,
+            "token": self.token,
+            "cmds": "-get --args README.md;ceva.md;;-trump"
+        }
+        response = CmdUtils.run_cmd_shell_true(f"python main.py "
+                                               f"--ip={cli_args.get('ip')} "
+                                               f"--port={cli_args.get('port')} "
+                                               f"--token={cli_args.get('token')} --cmds={cli_args.get('cmds')}")
+
+        self.assertEqual(0, response.get('code'))
+        self.assertIn("Saved at location", response.get('out'))
+
+    def test_cli_non_interactive_file_up_p(self):
+        cli_args = {
+            "ip": self.ip,
+            "port": self.port,
+            "token": self.token,
+            "cmds": "-put --args README.md;altceva.md;;-trump"
+        }
+        response = CmdUtils.run_cmd_shell_true(f"python main.py "
+                                               f"--ip={cli_args.get('ip')} "
+                                               f"--port={cli_args.get('port')} "
+                                               f"--token={cli_args.get('token')} --cmds={cli_args.get('cmds')}")
+
+        self.assertEqual(0, response.get('code'))
+        self.assertIn("Success", response.get('out'))
+
     def test_cli_non_interactive_multiple_cmds_p(self):
         cli_args = {
             "ip": self.ip,

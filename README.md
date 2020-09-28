@@ -37,7 +37,7 @@ python .\main.py --ip=192.168.0.10 --port=8080 --token=None --cmds="dir;;cat req
 The default endpoint is */command*. The endpoint can be overridden (E.g. Estuary deployer):
 ```bash
 python .\main.py --ip=192.168.0.10 --port=8080 --token=None --endpoint=/docker/command --cmds="dir;;cat requirements.txt;;-trump"
-python .\main.py --ip=192.168.0.10 --port=8080 --token=None --endpoint=/docker/command --cmds="dir;;cat requirements.txt;;-quit"
+python .\main.py --ip=localhost --port=8080 --token=None --protocol=https --cmds="dir;;-get --args README.md;altcva.md;;-quit"
 python .\main.py --ip=192.168.0.10 --port=8080 --token=None --endpoint=/kubectl/command --cmds="dir;;cat requirements.txt;;-trump"
 ```
 
