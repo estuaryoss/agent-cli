@@ -95,7 +95,7 @@ class FlaskServerTestCase(unittest.TestCase):
         response = CmdUtils.run_cmd_shell_true(f"python main.py "
                                                f"--ip={cli_args.get('ip')} "
                                                f"--port={cli_args.get('port')} "
-                                               f"--token={cli_args.get('token')} --cmds=\"{cli_args.get('cmds')};cat requirements.txt\"")
+                                               f"--token={cli_args.get('token')} --cmds=\"{cli_args.get('cmds')};;cat requirements.txt\"")
 
         self.assertIn("requirements.txt", response.get('out'))
         self.assertIn("pyinstaller", response.get('out'))
