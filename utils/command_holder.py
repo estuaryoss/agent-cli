@@ -1,24 +1,24 @@
 import sys
 
-from utils.ssh_cli import SSHCli
+from utils.ssh_cli import SftpCli
 
 
 class CommandHolder:
     commands = {
-        "quit": {
+        "-quit": {
             "--method": sys.exit,
             "--args": [0]
         },
-        "trump": {
+        "-trump": {
             "--method": sys.exit,
             "--args": [0]
         },
-        "cli-file --upload": {
-            "--method": SSHCli.upload_file,
+        "-put": {
+            "--method": SftpCli.upload_file,
             "--args": []
         },
-        "cli-file --download": {
-            "--method": SSHCli.download_file,
+        "-get": {
+            "--method": SftpCli.download_file,
             "--args": []
         },
     }

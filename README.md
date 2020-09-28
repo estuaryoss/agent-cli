@@ -30,24 +30,26 @@ python .\main.py --ip=192.168.0.10 --port=8080 --token=None
 
 ## Non-interactive usage
 ```bash
-python .\main.py --ip=192.168.0.10 --port=8080 --token=None --cmds="dir;;trump"
-python .\main.py --ip=192.168.0.10 --port=8080 --token=None --cmds="dir;;cat requirements.txt;;trump"
+python .\main.py --ip=192.168.0.10 --port=8080 --token=None --cmds="dir;;-trump"
+python .\main.py --ip=192.168.0.10 --port=8080 --token=None --cmds="dir;;cat requirements.txt;;-trump"
 ```
 
 The default endpoint is */command*. The endpoint can be overridden (E.g. Estuary deployer):
 ```bash
-python .\main.py --ip=192.168.0.10 --port=8080 --token=None --endpoint=/docker/command --cmds="dir;;cat requirements.txt;;trump"
-python .\main.py --ip=192.168.0.10 --port=8080 --token=None --endpoint=/kubectl/command --cmds="dir;;cat requirements.txt;;trump"
+python .\main.py --ip=192.168.0.10 --port=8080 --token=None --endpoint=/docker/command --cmds="dir;;cat requirements.txt;;-trump"
+python .\main.py --ip=192.168.0.10 --port=8080 --token=None --endpoint=/docker/command --cmds="dir;;cat requirements.txt;;-quit"
+python .\main.py --ip=192.168.0.10 --port=8080 --token=None --endpoint=/kubectl/command --cmds="dir;;cat requirements.txt;;-trump"
 ```
 
 ## File download and upload
 CLI supports file upload and download similar to ssh transfers.
 
-*cli-file --upload --args REMOTE_PATH;LOCAL_PATH*
+*-put --args LOCAL_PATH;REMOTE_PATH*
+*-get --args REMOTE_PATH;LOCAL_PATH*
 
 ```bash
-cli-file --upload --args 669564.pdf;C:\Users\Catalin Dinuta\Downloads\669564.pdf
-cli-file --download --args C:\Users\Catalin Dinuta\Downloads\669564.pdf;669564.pdf
+-put --args C:\Users\Dinuta\Downloads\669564.pdf;/tmp/remote/669564.pdf
+-get --args /tmp/remote/669564.pdf;C:\Users\Dinuta\Downloads\669564.pdf
 ```
 
 ## Params
@@ -84,6 +86,6 @@ Options:
 
 ## Exit cli
 ctrl + c  
-quit  
-trump  
+-quit  
+-trump  
   

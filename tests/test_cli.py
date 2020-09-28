@@ -168,7 +168,7 @@ class FlaskServerTestCase(unittest.TestCase):
             "port": self.port,
             "token": self.token
         }
-        command = "quit"
+        command = "-quit"
 
         runner = CliRunner()
         result = runner.invoke(cli,
@@ -182,7 +182,7 @@ class FlaskServerTestCase(unittest.TestCase):
             "port": self.port,
             "token": self.token
         }
-        command = "trump"
+        command = "-trump"
 
         runner = CliRunner()
         result = runner.invoke(cli,
