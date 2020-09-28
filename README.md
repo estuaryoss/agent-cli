@@ -56,19 +56,21 @@ PS > python main.py --help
 Usage: main.py [OPTIONS]
 
 Options:
-  --ip TEXT     The IP/hostname of the target machine where estuary-agent
-                is deployed
+  --ip TEXT        The IP/hostname of the target machine where estuary-agent
+                   is deployed
+  --port TEXT      The port number of the target machine where estuary-agent
+                   is deployed
+  --token TEXT     The authentication token that will be sent via 'Token'
+                   header. Use 'None' if estuary-agent is deployed unsecured
+  --protocol TEXT  The protocol with which the estuary-agent was deployed.
+                   Default is http. E.g. https
+  --cert TEXT      The certificate with which the estuary-agent was deployed.
+                   E.g. https/cert.pem
+  --endpoint TEXT  The endpoint to sent the request. Default is "/command"
+  --cmds TEXT      The commands to be sent separated by ";". Useful for non-
+                   interactive mode.
+  --help           Show this message and exit.
 
-  --port TEXT   The port number of the target machine where estuary-agent
-                is deployed
-
-  --token TEXT  The authentication token that will be sent via 'Token' header.
-                Use 'None' if estuary-agent is deployed unsecured
-
-  --cmds TEXT   The commands to be sent separated by ";". Useful for non-
-                interactive mode.
-
-  --help        Show this message and exit.
 ```
 
 ## Stateless cli example  
