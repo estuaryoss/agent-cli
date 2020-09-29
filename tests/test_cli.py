@@ -95,10 +95,10 @@ class FlaskServerTestCase(unittest.TestCase):
         response = CmdUtils.run_cmd_shell_true(f"python main.py "
                                                f"--ip={cli_args.get('ip')} "
                                                f"--port={cli_args.get('port')} "
-                                               f"--token={cli_args.get('token')} --cmds={cli_args.get('cmds')}")
+                                               f"--token={cli_args.get('token')} --cmds=\"{cli_args.get('cmds')}\"")
 
-        self.assertIn("Saved at location", response.get('out'))
         print(response.get("err"))
+        self.assertIn("Saved at location", response.get('out'))
         self.assertEqual(0, response.get('code'))
 
     def test_cli_non_interactive_file_up_p(self):
@@ -111,10 +111,10 @@ class FlaskServerTestCase(unittest.TestCase):
         response = CmdUtils.run_cmd_shell_true(f"python main.py "
                                                f"--ip={cli_args.get('ip')} "
                                                f"--port={cli_args.get('port')} "
-                                               f"--token={cli_args.get('token')} --cmds={cli_args.get('cmds')}")
+                                               f"--token={cli_args.get('token')} --cmds=\"{cli_args.get('cmds')}\"")
 
-        self.assertIn("Success", response.get('out'))
         print(response.get("err"))
+        self.assertIn("Success", response.get('out'))
         self.assertEqual(0, response.get('code'))
 
     def test_cli_non_interactive_multiple_cmds_p(self):
