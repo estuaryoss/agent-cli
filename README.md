@@ -30,14 +30,26 @@ python .\main.py --ip=192.168.0.10 --port=8080 --token=None
 
 ## Non-interactive usage
 ```bash
-python .\main.py --ip=192.168.0.10 --port=8080 --token=None --cmds="dir;trump"
-python .\main.py --ip=192.168.0.10 --port=8080 --token=None --cmds="dir;cat requirements.txt;trump"
+python .\main.py --ip=192.168.0.10 --port=8080 --token=None --cmds="dir;;-trump"
+python .\main.py --ip=192.168.0.10 --port=8080 --token=None --cmds="dir;;cat requirements.txt;;-trump"
 ```
 
 The default endpoint is */command*. The endpoint can be overridden (E.g. Estuary deployer):
 ```bash
-python .\main.py --ip=192.168.0.10 --port=8080 --token=None --endpoint=/docker/command --cmds="dir;cat requirements.txt;trump"
-python .\main.py --ip=192.168.0.10 --port=8080 --token=None --endpoint=/kubectl/command --cmds="dir;cat requirements.txt;trump"
+python .\main.py --ip=192.168.0.10 --port=8080 --token=None --endpoint=/docker/command --cmds="dir;;cat requirements.txt;;-trump"
+python .\main.py --ip=localhost --port=8080 --token=None --protocol=https --cmds="dir;;-get --args README.md;altcva.md;;-quit"
+python .\main.py --ip=192.168.0.10 --port=8080 --token=None --endpoint=/kubectl/command --cmds="dir;;cat requirements.txt;;-trump"
+```
+
+## File download and upload
+CLI supports file upload and download similar to sftp transfers.
+
+*-put --args LOCAL_PATH;REMOTE_PATH*
+*-get --args REMOTE_PATH;LOCAL_PATH*
+
+```bash
+-put --args C:\Users\Dinuta\Downloads\669564.pdf;/tmp/remote/669564.pdf
+-get --args /tmp/remote/669564.pdf;C:\Users\Dinuta\Downloads\669564.pdf
 ```
 
 ## Params
@@ -46,19 +58,21 @@ PS > python main.py --help
 Usage: main.py [OPTIONS]
 
 Options:
-  --ip TEXT     The IP/hostname of the target machine where estuary-agent
-                is deployed
+  --ip TEXT        The IP/hostname of the target machine where estuary-agent
+                   is deployed
+  --port TEXT      The port number of the target machine where estuary-agent
+                   is deployed
+  --token TEXT     The authentication token that will be sent via 'Token'
+                   header. Use 'None' if estuary-agent is deployed unsecured
+  --protocol TEXT  The protocol with which the estuary-agent was deployed.
+                   Default is http. E.g. https
+  --cert TEXT      The certificate with which the estuary-agent was deployed.
+                   E.g. https/cert.pem
+  --endpoint TEXT  The endpoint to sent the request. Default is "/command"
+  --cmds TEXT      The commands to be sent separated by ";". Useful for non-
+                   interactive mode.
+  --help           Show this message and exit.
 
-  --port TEXT   The port number of the target machine where estuary-agent
-                is deployed
-
-  --token TEXT  The authentication token that will be sent via 'Token' header.
-                Use 'None' if estuary-agent is deployed unsecured
-
-  --cmds TEXT   The commands to be sent separated by ";". Useful for non-
-                interactive mode.
-
-  --help        Show this message and exit.
 ```
 
 ## Stateless cli example  
@@ -72,6 +86,6 @@ Options:
 
 ## Exit cli
 ctrl + c  
-quit  
-trump  
+-quit  
+-trump  
   
