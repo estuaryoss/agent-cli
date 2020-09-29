@@ -44,7 +44,7 @@ python .\main.py --ip=192.168.0.10 --port=8080 --token=None --endpoint=/kubectl/
 ## File download and upload
 CLI supports file upload and download similar to sftp transfers.
 
-*-put --args LOCAL_PATH;REMOTE_PATH*
+*-put --args LOCAL_PATH;REMOTE_PATH*  
 *-get --args REMOTE_PATH;LOCAL_PATH*
 
 ```bash
