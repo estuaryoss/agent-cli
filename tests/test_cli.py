@@ -97,8 +97,9 @@ class FlaskServerTestCase(unittest.TestCase):
                                                f"--port={cli_args.get('port')} "
                                                f"--token={cli_args.get('token')} --cmds={cli_args.get('cmds')}")
 
-        self.assertEqual(0, response.get('code'))
         self.assertIn("Saved at location", response.get('out'))
+        print(response.get("err"))
+        self.assertEqual(0, response.get('code'))
 
     def test_cli_non_interactive_file_up_p(self):
         cli_args = {
@@ -112,8 +113,9 @@ class FlaskServerTestCase(unittest.TestCase):
                                                f"--port={cli_args.get('port')} "
                                                f"--token={cli_args.get('token')} --cmds={cli_args.get('cmds')}")
 
-        self.assertEqual(0, response.get('code'))
         self.assertIn("Success", response.get('out'))
+        print(response.get("err"))
+        self.assertEqual(0, response.get('code'))
 
     def test_cli_non_interactive_multiple_cmds_p(self):
         cli_args = {
