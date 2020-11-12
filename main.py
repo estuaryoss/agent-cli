@@ -4,6 +4,7 @@ import click
 
 __author__ = "Catalin Dinuta"
 
+from about import properties
 from service.restapi_service import RestApiService
 from runners.interactive_runner import InteractiveRunner
 from runners.non_interactive_runner import NonInteractiveRunner
@@ -22,6 +23,8 @@ from runners.non_interactive_runner import NonInteractiveRunner
 @click.option('--endpoint', help='The endpoint to sent the request. Default is "/command"')
 @click.option('--cmds', help='The commands to be sent separated by ";". Useful for non-interactive mode.')
 def cli(ip, port, token, protocol, cert, endpoint, cmds):
+    print(f"CLI version: {properties.get('version')}\n")
+
     connection = {
         "ip": ip,
         "port": port,
