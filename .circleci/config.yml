@@ -17,7 +17,7 @@ jobs:
           command: pyinstaller --onefile main.py
           name: "generate cli exe with pyinstaller"
       - run:
-          command: $ProgressPreference = "SilentlyContinue"; wget https://estuary-agent.s3.eu-central-1.amazonaws.com/4.0.8/main-win.exe -o main-win.exe
+          command: $ProgressPreference = "SilentlyContinue"; wget https://estuary-agent.s3.eu-central-1.amazonaws.com/4.3.0/main-win.exe -o main-win.exe
           name: "download estuary-agent"
       - run:
           command: Start-Process .\main-win.exe
