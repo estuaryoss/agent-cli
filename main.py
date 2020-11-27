@@ -21,7 +21,8 @@ from runners.non_interactive_runner import NonInteractiveRunner
 @click.option('--protocol', help='The protocol with which the estuary-agent was deployed. Default is http. E.g. https')
 @click.option('--cert', help='The certificate with which the estuary-agent was deployed. E.g. https/cert.pem')
 @click.option('--endpoint', help='The endpoint to sent the request. Default is "/command"')
-@click.option('--keep_state', type=bool, default=False, help='Whenever to keep the current working dir. Default is "False"')
+@click.option('--keep_state', type=bool, default=False,
+              help='Whenever to keep the current working dir. Default is "False"')
 @click.option('--cmds', help='The commands to be sent separated by ";". Useful for non-interactive mode.')
 def cli(ip, port, token, protocol, cert, endpoint, keep_state, cmds):
     print(f"CLI version: {properties.get('version')}\n")
@@ -53,7 +54,8 @@ def cli(ip, port, token, protocol, cert, endpoint, keep_state, cmds):
     # stay in loop. ctrl+c to exit or send '-quit/-trump'
     while True:
         command = input(">> ")
-        wd = InteractiveRunner.run_command(service=service, command=command, keep_state=keep_state, wd=wd, wd_cmd=wd_cmd)
+        wd = InteractiveRunner.run_command(service=service, command=command, keep_state=keep_state, wd=wd,
+                                           wd_cmd=wd_cmd)
 
 
 if __name__ == "__main__":
