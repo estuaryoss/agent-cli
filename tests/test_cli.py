@@ -133,6 +133,23 @@ class FlaskServerTestCase(unittest.TestCase):
         self.assertIn("pyinstaller", response.get('out'))
         self.assertEqual(0, response.get('code'))
 
+    # def test_cli_non_interactive_stateful_wd_p(self):
+    #     cli_args = {
+    #         "ip": self.ip,
+    #         "port": self.port,
+    #         "token": self.token,
+    #         "keep_state": True,
+    #         "cmds": "cd docs;;ls;;-trump"
+    #     }
+    #     response = CmdUtils.run_cmd_shell_true(f"python main.py "
+    #                                            f"--ip={cli_args.get('ip')} "
+    #                                            f"--port={cli_args.get('port')} "
+    #                                            f"--keep_state={cli_args.get('keep_state')} "
+    #                                            f"--token={cli_args.get('token')} --cmds=\"{cli_args.get('cmds')}\"")
+    #
+    #     self.assertIn("images", response.get('out'))
+    #     self.assertEqual(0, response.get('code'))
+
     def test_cli_non_interactive_different_endpoint_n(self):
         cli_args = {
             "ip": self.ip,
