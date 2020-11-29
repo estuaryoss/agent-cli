@@ -52,9 +52,6 @@ class RestApiService:
             "Content-Type": "text/plain"
         }
 
-        # return prompt if empty or spaces
-        if re.compile(r"^\s+$").search(command) or command == "":
-            return ""
         cd_cmd = f"cd {wd} && {command} && {wd_cmd}" if keep_state else command
         response = requests.post(url_format, headers=headers, data=cd_cmd, timeout=5,
                                  verify=self.conn.get('cert'))
@@ -99,6 +96,6 @@ class RestApiService:
         return self.about().get("system")
 
     def get_wd_cmd(self):
-        pwd_cmd = "cd" if self.get_os() == "Windows" else "pwd"
+        pwd_cmd = "cd" if self.get_os().lower() == "Windows".lower() else "pwd"
 
         return pwd_cmd

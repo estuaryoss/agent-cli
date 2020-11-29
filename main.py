@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 
-import click
-
 __author__ = "Catalin Dinuta"
 
+import re
+
+import click
+import yaml
+
 from about import properties
-from service.restapi_service import RestApiService
 from runners.interactive_runner import InteractiveRunner
 from runners.non_interactive_runner import NonInteractiveRunner
+from service.restapi_service import RestApiService
 
 
 @click.command()
@@ -25,7 +28,7 @@ from runners.non_interactive_runner import NonInteractiveRunner
               help='Whenever to keep the current working dir. Default is "False"')
 @click.option('--cmds', help='The commands to be sent separated by ";". Useful for non-interactive mode.')
 def cli(ip, port, token, protocol, cert, endpoint, keep_state, cmds):
-    print(f"CLI version: {properties.get('version')}\n")
+    click.echo(f"CLI version: {properties.get('version')}\n")
 
     connection = {
         "ip": ip,
@@ -36,6 +39,7 @@ def cli(ip, port, token, protocol, cert, endpoint, keep_state, cmds):
         "endpoint": endpoint if endpoint is not None else "/command"
     }
     service = RestApiService(connection)
+    click.echo(f"Worker information: \n{yaml.dump(service.about())}\n")
 
     # check if can connect
     try:
@@ -44,18 +48,23 @@ def cli(ip, port, token, protocol, cert, endpoint, keep_state, cmds):
         print("\nException({})".format(e.__str__()))
         exit(1)
 
-    wd = "."
-    wd_cmd = service.get_wd_cmd()
+    wo_dir = "."
+    wo_dir_cmd = service.get_wd_cmd()
 
     if cmds is not None:
-        NonInteractiveRunner.run_commands(service=service, cmds=cmds, keep_state=keep_state, wd=wd, wd_cmd=wd_cmd)
+        NonInteractiveRunner.run_commands(service=service, cmds=cmds)
         exit(0)
 
     # stay in loop. ctrl+c to exit or send '-quit/-trump'
     while True:
         command = input(">> ")
-        wd = InteractiveRunner.run_command(service=service, command=command, keep_state=keep_state, wd=wd,
-                                           wd_cmd=wd_cmd)
+        command = command.strip()
+
+        # return prompt if empty or just tabs or spaces
+        if re.compile(r"^\s+$").search(command) or command == "":
+            continue
+        wo_dir = InteractiveRunner.run_command(service=service, command=command, keep_state=keep_state, wd=wo_dir,
+                                               wd_cmd=wo_dir_cmd)
 
 
 if __name__ == "__main__":
