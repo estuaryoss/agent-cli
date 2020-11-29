@@ -58,13 +58,13 @@ class RestApiService:
 
         # error, server sent non 200 OK response code
         if response.status_code != 200:
-            return "Error: Http code: {}. Http body: {}".format(response.status_code, response.text)
+            return "Error: Http code: {}. Http body: {}".format(response.status_code, response.text), wd
 
         body = response.json()
 
         # error, the type should be dict
         if isinstance(body['description'], str):
-            return body.get('description')
+            return body.get('description'), wd
 
         details = body.get('description').get('commands').get(cd_cmd).get('details')
         if re.compile(r"cd\s+.*").search(command) and details.get('out') and keep_state:

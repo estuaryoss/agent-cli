@@ -39,7 +39,6 @@ def cli(ip, port, token, protocol, cert, endpoint, keep_state, cmds):
         "endpoint": endpoint if endpoint is not None else "/command"
     }
     service = RestApiService(connection)
-    click.echo(f"Worker information: \n{yaml.dump(service.about())}\n")
 
     # check if can connect
     try:
@@ -48,11 +47,14 @@ def cli(ip, port, token, protocol, cert, endpoint, keep_state, cmds):
         print("\nException({})".format(e.__str__()))
         exit(1)
 
-    wo_dir = "."
+    click.echo(f"Worker information: \n{yaml.dump(service.about())}\n")
+
+    wo_dir = "."  # remote path on the agent
     wo_dir_cmd = service.get_wd_cmd()
 
     if cmds is not None:
-        NonInteractiveRunner.run_commands(service=service, cmds=cmds)
+        NonInteractiveRunner.run_commands(service=service, cmds=cmds, keep_state=keep_state, wd=wo_dir,
+                                          wd_cmd=wo_dir_cmd)
         exit(0)
 
     # stay in loop. ctrl+c to exit or send '-quit/-trump'
