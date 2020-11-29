@@ -139,7 +139,7 @@ class FlaskServerTestCase(unittest.TestCase):
             "port": self.port,
             "token": self.token,
             "keep_state": True,
-            "cmds": "cd wiki;;cat Home.md;;-trump"
+            "cmds": "cd docs;;ls;;-trump"
         }
         response = CmdUtils.run_cmd_shell_true(f"python main.py "
                                                f"--ip={cli_args.get('ip')} "
@@ -147,7 +147,7 @@ class FlaskServerTestCase(unittest.TestCase):
                                                f"--keep_state={cli_args.get('keep_state')} "
                                                f"--token={cli_args.get('token')} --cmds=\"{cli_args.get('cmds')}\"")
 
-        self.assertIn("Case 4", response.get('out'))
+        self.assertIn("images", response.get('out'))
         self.assertEqual(0, response.get('code'))
 
     def test_cli_non_interactive_different_endpoint_n(self):
