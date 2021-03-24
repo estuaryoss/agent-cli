@@ -18,7 +18,7 @@ Stateless CLI over REST API using estuary-agent. Smoothly control and configure 
 -  connect to the target machine with this CLI
 
 ## CLI in action on Katacoda
-https://katacoda.com/dinuta/scenarios/estuary-cli
+https://katacoda.com/estuaryoss/scenarios/estuary-cli
 
 ## Interactive usage
 ```bash
