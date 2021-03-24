@@ -1,8 +1,6 @@
 <h1 align="center"><img src="./docs/images/banner_cli.png" alt="Testing as a service"></h1>  
 
-Support project: <a href="https://paypal.me/catalindinuta?locale.x=en_US"><img src="https://lh3.googleusercontent.com/Y2_nyEd0zJftXnlhQrWoweEvAy4RzbpDah_65JGQDKo9zCcBxHVpajYgXWFZcXdKS_o=s180-rw" height="40" width="40" align="center"></a>    
-
-# estuary-cli
+# Estuary Cli
 Stateless CLI over REST API using estuary-agent. Smoothly control and configure your machine / CLI application.
 
 ## Code quality
@@ -16,7 +14,7 @@ Stateless CLI over REST API using estuary-agent. Smoothly control and configure 
 [![CircleCI](https://circleci.com/gh/estuaryoss/estuary-cli.svg?style=svg)](https://circleci.com/gh/estuaryoss/estuary-cli)
 
 ## Steps
--  deploy [estuary-agent](https://github.com/dinuta/estuary-agent) or [estuary-agent-java](https://github.com/dinuta/estuary-agent-java)  on the target machine (metal/VM/Docker/IoT device)
+-  deploy [estuary-agent](https://github.com/estuaryoss/estuary-agent-go) or [estuary-agent-java](https://github.com/estuaryoss/estuary-agent-java)  on the target machine (metal/VM/Docker/IoT device)
 -  connect to the target machine with this CLI
 
 ## CLI in action on Katacoda
@@ -89,3 +87,4 @@ ctrl + c
 -quit  
 -trump  
   
+Support project: <a href="https://paypal.me/catalindinuta?locale.x=en_US"><img src="https://lh3.googleusercontent.com/Y2_nyEd0zJftXnlhQrWoweEvAy4RzbpDah_65JGQDKo9zCcBxHVpajYgXWFZcXdKS_o=s180-rw" height="40" width="40" align="center"></a>    
