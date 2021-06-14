@@ -8,17 +8,17 @@ Stateless CLI over REST API using estuary-agent. Smoothly control and configure 
 [![Maintainability](https://api.codeclimate.com/v1/badges/8fffe56fb66038d7fa2d/maintainability)](https://codeclimate.com/github/estuaryoss/estuary-cli/maintainability)
 
 ## Linux status
-[![Build Status](https://travis-ci.org/estuaryoss/estuary-cli.svg?branch=master)](https://travis-ci.org/estuaryoss/estuary-cli)
+[![Build Status](https://travis-ci.com/estuaryoss/agent-cli.svg?branch=master)](https://travis-ci.com/estuaryoss/agent-cli)
 
 ## Win status
-[![CircleCI](https://circleci.com/gh/estuaryoss/estuary-cli.svg?style=svg)](https://circleci.com/gh/estuaryoss/estuary-cli)
+[![CircleCI](https://circleci.com/gh/estuaryoss/agent-cli.svg?style=svg)](https://circleci.com/gh/estuaryoss/agent-cli)
 
 ## Steps
 -  deploy [estuary-agent](https://github.com/estuaryoss/estuary-agent-go) or [estuary-agent-java](https://github.com/estuaryoss/estuary-agent-java)  on the target machine (metal/VM/Docker/IoT device)
 -  connect to the target machine with this CLI
 
 ## CLI in action on Katacoda
-https://katacoda.com/estuaryoss/scenarios/estuary-cli
+https://katacoda.com/estuaryoss/scenarios/agent-cli
 
 ## Interactive usage
 ```bash
