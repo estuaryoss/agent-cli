@@ -17,10 +17,10 @@ jobs:
           command: pyinstaller --onefile main.py
           name: "generate cli exe with pyinstaller"
       - run:
-          command: $ProgressPreference = "SilentlyContinue"; wget https://estuary-agent.s3.eu-central-1.amazonaws.com/4.3.0/main-win.exe -o main-win.exe
-          name: "download estuary-agent"
+          command: $ProgressPreference = "SilentlyContinue"; wget https://repo1.maven.org/maven2/com/github/estuaryoss/agent/4.2.3-P1/agent-4.2.3-P1-exec.jar -o agent-exec.jar
+          name: "download Estuary-Agent"
       - run:
-          command: Start-Process .\main-win.exe
+          command: Start-Process java -jar agent-exec.jar
           name: "start estuary-agent"
       - run:
           command: ping -n 5 127.0.0.1
