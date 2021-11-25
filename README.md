@@ -8,19 +8,27 @@ Stateless CLI over REST API using estuary-agent. Smoothly control and configure 
 [![Maintainability](https://api.codeclimate.com/v1/badges/8fffe56fb66038d7fa2d/maintainability)](https://codeclimate.com/github/estuaryoss/estuary-cli/maintainability)
 
 ## Linux status
+
 [![Build Status](https://travis-ci.com/estuaryoss/agent-cli.svg?branch=master)](https://travis-ci.com/estuaryoss/agent-cli)
 
 ## Win status
+
 [![CircleCI](https://circleci.com/gh/estuaryoss/agent-cli.svg?style=svg)](https://circleci.com/gh/estuaryoss/agent-cli)
 
 ## Steps
--  deploy [estuary-agent](https://github.com/estuaryoss/estuary-agent-go) or [estuary-agent-java](https://github.com/estuaryoss/estuary-agent-java)  on the target machine (metal/VM/Docker/IoT device)
--  connect to the target machine with this CLI
+
+- deploy [estuary-agent-java](https://github.com/estuaryoss/estuary-agent-java)  on the target machine (
+  metal/VM/Docker/IoT device)
+- connect to the target machine with this CLI
+
+! Obs: Compatible with agent versions >= 4.2.4
 
 ## CLI in action on Katacoda
+
 https://katacoda.com/estuaryoss/scenarios/agent-cli
 
 ## Interactive usage
+
 ```bash
 python main.py 
 python .\main.py --ip=192.168.0.10 --port=8080 --token=None
@@ -51,25 +59,36 @@ CLI supports file upload and download similar to sftp transfers.
 ```
 
 ## Params
+
 ```bash
 PS > python main.py --help
 Usage: main.py [OPTIONS]
 
 Options:
-  --ip TEXT        The IP/hostname of the target machine where estuary-agent
-                   is deployed
-  --port TEXT      The port number of the target machine where estuary-agent
-                   is deployed
-  --token TEXT     The authentication token that will be sent via 'Token'
-                   header. Use 'None' if estuary-agent is deployed unsecured
-  --protocol TEXT  The protocol with which the estuary-agent was deployed.
-                   Default is http. E.g. https
-  --cert TEXT      The certificate with which the estuary-agent was deployed.
-                   E.g. https/cert.pem
-  --endpoint TEXT  The endpoint to sent the request. Default is "/command"
-  --cmds TEXT      The commands to be sent separated by ";". Useful for non-
-                   interactive mode.
-  --help           Show this message and exit.
+  --ip TEXT             The IP/hostname of the target machine where Agent is
+                        deployed
+
+  --port INTEGER        The port number of the target machine where Agent is
+                        deployed
+
+  --username TEXT       The username used for the Basic authentication
+  --password TEXT       The password used for the Basic authentication
+  --protocol TEXT       The protocol with which the Agent was deployed.
+                        Default is http. E.g. https
+
+  --cert TEXT           The certificate with which the Agent was deployed.
+                        E.g. https/cert.pem
+
+  --endpoint TEXT       The endpoint to sent the request. Default is
+                        "/command"
+
+  --keep_state BOOLEAN  Whenever to keep the current working dir. Default is
+                        "False"
+
+  --cmds TEXT           The commands to be sent separated by ";". Useful for
+                        non-interactive mode.
+
+  --help                Show this message and exit.
 
 ```
 

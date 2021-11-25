@@ -1,6 +1,6 @@
 properties = {
     "name": "estuary-cli",
-    "version": "4.1.1",
+    "version": "4.1.2",
     "description": "CLI over REST API similar with SSH",
     "author": "Catalin Dinuta",
     "platforms": ["Linux", "Mac", "Windows"],
