@@ -20,10 +20,10 @@ jobs:
           command: $ProgressPreference = "SilentlyContinue"; wget https://repo1.maven.org/maven2/com/github/estuaryoss/agent/4.2.3-P1/agent-4.2.3-P1-exec.jar -o agent-exec.jar
           name: "download Agent"
       - run:
-          command: Start-Process -FilePath java -Wait -ArgumentList @("-jar agent-exec.jar")
+          command: Start-Process -FilePath java -ArgumentList @("-jar agent-exec.jar")
           name: "start Agent"
       - run:
-          command: ping -n 5 127.0.0.1
+          command: ping -n 20 127.0.0.1
           name: "wait some time"
       - run:
           command: python -m unittest discover tests "test_cli.py"
