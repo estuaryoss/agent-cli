@@ -31,20 +31,20 @@ https://katacoda.com/estuaryoss/scenarios/agent-cli
 
 ```bash
 python main.py 
-python .\main.py --ip=192.168.0.10 --port=8080 --token=None
+python .\main.py --ip=192.168.0.10 --port=8080 --username=admin --password=yourSecret
 ```
 
 ## Non-interactive usage
 ```bash
-python .\main.py --ip=192.168.0.10 --port=8080 --token=None --cmds="dir;;-trump"
-python .\main.py --ip=192.168.0.10 --port=8080 --token=None --cmds="dir;;cat requirements.txt;;-trump"
+python .\main.py --ip=192.168.0.10 --port=8080 --username=admin --password=yourSecret --cmds="dir;;-trump"
+python .\main.py --ip=192.168.0.10 --port=8080 --username=admin --password=yourSecret --cmds="dir;;cat requirements.txt;;-trump"
 ```
 
-The default endpoint is */command*. The endpoint can be overridden (E.g. Estuary deployer):
+The default endpoint is */command*. The endpoint can be overridden if it is compatible.
 ```bash
-python .\main.py --ip=192.168.0.10 --port=8080 --token=None --endpoint=/docker/command --cmds="dir;;cat requirements.txt;;-trump"
-python .\main.py --ip=localhost --port=8080 --token=None --protocol=https --cmds="dir;;-get --args README.md;altcva.md;;-quit"
-python .\main.py --ip=192.168.0.10 --port=8080 --token=None --endpoint=/kubectl/command --cmds="dir;;cat requirements.txt;;-trump"
+python .\main.py --ip=192.168.0.10 --port=8080 --username=admin --password=yourSecret --endpoint=/docker/command --cmds="dir;;cat requirements.txt;;-trump"
+python .\main.py --ip=localhost --port=8080 --username=admin --password=yourSecret --protocol=https --cmds="dir;;-get --args README.md;altcva.md;;-quit"
+python .\main.py --ip=192.168.0.10 --port=8080 --username=admin --password=yourSecret --endpoint=/kubectl/command --cmds="dir;;cat requirements.txt;;-trump"
 ```
 
 ## File download and upload
